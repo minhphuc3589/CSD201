@@ -1,0 +1,30 @@
+/* CSD201 - Truong Doan Minh Phuc */
+#stack-pane {
+    -fx-border-color: black;
+}
+
+#username-text, #password-text {
+    -fx-background-color: white;
+}
+
+#username-field, #password-field {
+    -fx-padding: 10px;
+}
+
+#register-text:hover, #forgot-password-text:hover {
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+}
+
+#license-text, #register-text, #forgot-password-text {
+    -fx-fill: black;
+}
+
+#login-pane {
+    -fx-background-color: white;
+}
+
+#register-pane {
+    -fx-background-color: red;
+    
+}

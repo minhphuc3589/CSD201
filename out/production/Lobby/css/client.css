@@ -1,0 +1,20 @@
+#option-bar {
+    -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+#header-pane {
+    -fx-border-color: yellow;
+}
+
+#body-pane {
+    -fx-border-color: yellow;
+}
+
+#stack-pane {
+    -fx-border-color: blue;
+}
+
+#login-pane {
+    -fx-background-color: linear-gradient(to bottom right, transparent, #3f403f);
+    -fx-border-color: red;
+}
