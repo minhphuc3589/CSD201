@@ -45,7 +45,7 @@ public class GameCenter extends JFrame {
     // Sets current key of game to start the game when clicked game icon
     private String currentKeyGame;
     private Initialize currentValueGame;
-    
+        
     private int sizeOfGameIcon;
 
     /**
@@ -85,18 +85,21 @@ public class GameCenter extends JFrame {
         btnQUIT.setSize(25, 25);
         
         btnBACK.addActionListener(e -> {
+            panelUIGamePlay.remove(panelUIGamePlay.getComponent(3));
+            
             for (Object col : panelUIGamePlay.getComponents()) {
                 System.out.println(col.getClass());
             }
-            
-            System.out.println(panelUIGamePlay.getComponent(1).getName());
-            
+            System.out.println("-----------");
+                        
             this.requestFocus();
             this.requestFocusInWindow();
 
             panelUIGamePlayHandler();
             panelHeaderHandler();
-            panelBodyHandler();
+
+            panelBody.setVisible(true);
+            
             panelFooterHandler();
         });
         
@@ -177,6 +180,8 @@ public class GameCenter extends JFrame {
                 currentValueGame.getFrame().setMaximumSize(new Dimension((WIDTH * 6) / 8, HEIGHT));
                 currentValueGame.getFrame().setLocation(currentValueGame.getFrame().getWidth(), 0);
                 
+                panelUIGamePlay.add(btnHIDE);
+                panelUIGamePlay.add(btnQUIT);
                 panelUIGamePlay.add(currentValueGame.getFrame());
                 panelUIGamePlay.setVisible(true);
                 
@@ -206,8 +211,6 @@ public class GameCenter extends JFrame {
         btnBACK.setLocation(25, 25);
         
         panelUIGamePlay.add(btnBACK);
-        panelUIGamePlay.add(btnHIDE);
-        panelUIGamePlay.add(btnQUIT);
         
         panelUIGamePlay.repaint();
     }
