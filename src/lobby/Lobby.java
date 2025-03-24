@@ -66,7 +66,11 @@ public class Lobby {
         });
     }
     
-    
+    /**
+     * The pane behind Login Pane or Register Pane
+     * 
+     * @return The background's pane
+     */
     private Pane getBackground() {
         Pane pane =  new Pane();
         Text txtTitle = new Text();
@@ -89,6 +93,10 @@ public class Lobby {
         return pane;
     }
     
+    /**
+     * 
+     * @return 
+     */
     private Pane getOptionBar() {
         Pane pane = new Pane();
         ButtonFX btnMinimize = new ButtonFX("pictures/minimize-button.png", 20, 20);

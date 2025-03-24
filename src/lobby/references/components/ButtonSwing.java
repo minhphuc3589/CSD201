@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /**
- * Java Swing Button - CSD201
+ * CSD201 - Java Swing Button
  *
  * @author PhucTDMCE190744
  */
@@ -42,7 +42,7 @@ public class ButtonSwing extends JButton {
         this.setOpaque(false);
         this.setContentAreaFilled(false);
         this.setBorderPainted(false);
-        this.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
+        this.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
     }
 }

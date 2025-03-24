@@ -14,9 +14,10 @@ public class CountCharacter {
     private int result;
     
     /**
+     * Counts the character in the origin string
      * 
-     * @param string Origin string
-     * @param character Which want to count
+     * @param string An origin string
+     * @param character A character wanted to count
      */
     
     public CountCharacter(String string, Character character) {
