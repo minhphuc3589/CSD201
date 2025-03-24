@@ -10,7 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
- * Java FX Button - CSD201
+ * CSD201 - Java FX Button
  * 
  * @author Trương Đoàn Minh Phúc - CE190744
  */

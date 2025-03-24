@@ -24,7 +24,7 @@ import lobby.algorithms.CountCharacter;
 import lobby.gamecenter.GameCenter;
 
 /**
- * CSD201 - Login
+ * CSD201 - Login Pane [Java FX]
  *
  * @author Trương Đoàn Minh Phúc - CE190744
  */

@@ -7,12 +7,14 @@ package lobby.gamecenter;
 
 import DataAccessObject.File.UserDAO;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Map;
 import java.util.TreeMap;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import lobby.gamecenter.games.Initialize;
@@ -40,12 +42,16 @@ public class GameCenter extends JFrame {
     private ButtonSwing btnHIDE;
     private ButtonSwing btnQUIT;
     
+    private JLabel labelTitleHeader;
+    private JLabel labelFirstLicense;
+    private JLabel labelSecondLicense;
+    
     private UserAccount userAccount;
     
     // Sets current key of game to start the game when clicked game icon
     private String currentKeyGame;
     private Initialize currentValueGame;
-        
+    
     private int sizeOfGameIcon;
 
     /**
@@ -61,6 +67,9 @@ public class GameCenter extends JFrame {
         panelHeader = new JPanel();
         panelBody = new JPanel();
         panelFooter = new JPanel();
+        
+        labelFirstLicense = new JLabel("License belongs to CSD201");
+        labelSecondLicense = new JLabel("Lecturer: Le Thi Phuong Dung");
         
         btnBACK = new ButtonSwing("src/pictures/back-button.png", 25, 25);
         btnHIDE = new ButtonSwing("src/pictures/minimize-button.png", 25, 25);
@@ -84,23 +93,21 @@ public class GameCenter extends JFrame {
         btnHIDE.setSize(25, 25);
         btnQUIT.setSize(25, 25);
         
+        btnHIDE.setLocation(WIDTH - 80, 25);
+        btnQUIT.setLocation(WIDTH - 50, 25);
+        
+        // When clicked Back button, it will rollback the main Game Center
         btnBACK.addActionListener(e -> {
             panelUIGamePlay.remove(panelUIGamePlay.getComponent(3));
             
-            for (Object col : panelUIGamePlay.getComponents()) {
-                System.out.println(col.getClass());
-            }
-            System.out.println("-----------");
-                        
+            // Sets focus on the main Game Center after rollbacked
             this.requestFocus();
             this.requestFocusInWindow();
 
-            panelUIGamePlayHandler();
+            panelUIGamePlay.setVisible(false);
             panelHeaderHandler();
-
             panelBody.setVisible(true);
-            
-            panelFooterHandler();
+            panelFooter.setVisible(true);
         });
         
         btnHIDE.addActionListener(e -> {
@@ -111,9 +118,15 @@ public class GameCenter extends JFrame {
             dispose();
         });
         
+//        this.requestFocus();
+        this.requestFocusInWindow();
+        
         this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    dispose();
+                }
             }
 
             @Override
@@ -121,17 +134,19 @@ public class GameCenter extends JFrame {
                 if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                     dispose();
                 }
+                
+                System.out.println("abc");
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
             }
         });
-                
+        
         this.getContentPane().add(panelUIGamePlay);
         this.getContentPane().add(panelHeader);
         this.getContentPane().add(panelBody);
-        this.getContentPane().add(panelFooter);
+        this.getContentPane().add(panelFooter);        
     }
     
     /**
@@ -220,18 +235,14 @@ public class GameCenter extends JFrame {
      */
     private void panelHeaderHandler() {
         panelHeader.setSize(WIDTH, HEIGHT / 8);
+        panelHeader.setLocation(0, 0);
         panelHeader.setVisible(true);
         panelHeader.setLayout(null);
-
-        btnHIDE.setLocation(panelHeader.getWidth() - 80, 25);
-        btnQUIT.setLocation(panelHeader.getWidth() - 50, 25);
-
+        
         panelHeader.add(btnHIDE);
         panelHeader.add(btnQUIT);
         
-//        panelHeader.revalidate();
         panelHeader.repaint();
-
     }
     
     /**
@@ -254,6 +265,23 @@ public class GameCenter extends JFrame {
     public void panelFooterHandler() {
         panelFooter.setSize(WIDTH, HEIGHT / 5);
         panelFooter.setLocation(0, (HEIGHT * 4) / 5);
+        panelFooter.setVisible(true);
+        panelFooter.setLayout(null);
+        
+        Font labelLicenseFont = new Font("Times New Roman", Font.BOLD, 20);
+        
+        labelFirstLicense.setSize(1000, 100);
+        labelFirstLicense.setLocation(100, 100);
+        labelFirstLicense.setFont(labelLicenseFont);
+        
+        labelSecondLicense.setSize(1000, 100);
+        labelSecondLicense.setLocation(100, 150);
+        labelSecondLicense.setFont(labelLicenseFont);
+        
+        panelFooter.add(labelFirstLicense);
+        panelFooter.add(labelSecondLicense);
+        
+        panelFooter.repaint();
     }
     
     /**
@@ -301,7 +329,7 @@ public class GameCenter extends JFrame {
         JOptionPane alert = new JOptionPane();
 
         // Prevents alert initialized more 1 times when clicked or pressed Exit button
-        this.getContentPane().requestFocusInWindow();
+        this.requestFocusInWindow();
 
         int choice = alert.showConfirmDialog(newFrame, "Do you want to quit?", "   GROUP 3 - CSD201", JOptionPane.YES_NO_OPTION);
 

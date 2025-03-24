@@ -4,9 +4,13 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.Timer;
-import java.util.Random;
 import lobby.gamecenter.games.Initialize;
 
+/**
+ * CSD201 - TicTacToe [Java Swing]
+ * 
+ * @author PhucTDMCE190744
+ */
 public class Game implements Initialize {
 
     private JPanel frame;
@@ -103,6 +107,12 @@ public class Game implements Initialize {
         startTurnTimer(); // Khởi động lại bộ đếm cho lượt mới
     }
     
+    /**
+     * Starts the game.
+     * 
+     * @param width The width of the game
+     * @param height The height of the game
+     */
     @Override
     public void start(int width, int height) {
         frame = new JPanel();
@@ -159,8 +169,9 @@ public class Game implements Initialize {
     }
     
     /**
+     * Gets the main frame.
      * 
-     * @return 
+     * @return The main frame of game
      */
     @Override
     public JPanel getFrame() {
