@@ -5,6 +5,7 @@
  */
 package lobby.gamecenter.games;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -13,6 +14,9 @@ import javax.swing.JPanel;
  * @author PhucTDMCE190744
  */
 public interface Initialize {
-    public abstract JPanel getFrame();
+    public abstract JPanel getJPanel();
+    public abstract JFrame getJFrame();
+    public abstract int getTypeGame();
     public abstract void start(int width, int height);
+    public boolean getStatus();
 }

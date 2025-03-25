@@ -6,7 +6,8 @@
 package lobby.components;
 
 /**
- *
+ * CSD201 - Forgot Password Pane [Java FX]
+ * 
  * @author Trương Đoàn Minh Phúc - CE190744
  */
 public class ForgetPasswordPane {

@@ -174,7 +174,22 @@ public class Game implements Initialize {
      * @return The main frame of game
      */
     @Override
-    public JPanel getFrame() {
+    public JPanel getJPanel() {
         return frame;
+    }
+
+    @Override
+    public JFrame getJFrame() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getTypeGame() {
+        return 1;
+    }
+
+    @Override
+    public boolean getStatus() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

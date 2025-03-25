@@ -9,7 +9,8 @@ import javafx.scene.layout.Pane;
 import lobby.Main;
 
 /**
- *
+ * CSD201 - Register Pane [Java FX]
+ * 
  * @author Trương Đoàn Minh Phúc - CE190744
  */
 public class RegisterPane extends Pane {

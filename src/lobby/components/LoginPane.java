@@ -19,6 +19,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javax.swing.Timer;
 import lobby.Main;
 import lobby.algorithms.CountCharacter;
 import lobby.gamecenter.GameCenter;
@@ -180,7 +181,11 @@ public class LoginPane extends Pane {
 
             btnLogin.setDisable(true);
 
-            gameCenter.start();
+            Timer timer = new Timer(100, e -> {
+                gameCenter.start();
+            });
+            timer.setRepeats(false);
+            timer.start();
 
             Main.getStage().close();
 
@@ -214,8 +219,8 @@ public class LoginPane extends Pane {
         btnLogin.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             initGameCenter();            
         });
+        
         /* Sign in account */
-
         hboxSubmission.setId("submission-hbox");
         hboxSubmission.setMinSize(x, btnLogin.getHeight());
         hboxSubmission.setSpacing(x / 4);
